@@ -1,8 +1,8 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Error from './Error'
 
 
-const Formulario = () => {
+const Formulario = ({guardarBusquedaLetra}) => {
 
     const [busqueda,guardarBusqueda]=useState({cancion:'',artista:''})
     const [error , guardarError]=useState(false)
@@ -21,8 +21,11 @@ const Formulario = () => {
             guardarError(true);
             return;
         }
+        guardarError(false);
+        guardarBusquedaLetra(busqueda)
              
     }
+
 
     const {artista ,cancion}=busqueda
 
@@ -35,8 +38,8 @@ const Formulario = () => {
         <div className="bg-info">
            
             <div className="container">
+            {error? <Error mensaje="complete los todos los campos vacios"/> :null}
                 <div className="row">
-                    {error? <Error mensaje="complete los todos los campos vacios"/> :null}
                     <form 
                          className="col card text-white bg-transparent mb-5 pt-5 pb-2"
                          onSubmit={handleSubmit}
