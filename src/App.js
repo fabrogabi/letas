@@ -1,7 +1,18 @@
+import React,{Fragment} from 'react';
+import Formulario from './Components/Formulario'
+
+
+
 
 function App() {
+
+
   return (
-   <h1>aa</h1>
+    <Fragment>
+      <Formulario/>
+    </Fragment>
+    
+    
   );
 }
 
